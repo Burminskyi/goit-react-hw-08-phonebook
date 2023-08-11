@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SharedLayout } from 'components/SharedLayout/SharedLayout.jsx';
-import { selectToken } from 'redux/selectors';
+import { selectAuthentificationStatus, selectToken } from 'redux/selectors';
 import { refreshUserThunk } from 'redux/operations';
 import { RestrictedRoute } from 'RestrictedRoute';
 import { PrivateRoute } from 'PrivateRoute';
@@ -13,15 +13,16 @@ const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage.jsx'));
 const HomePage = lazy(() => import('pages/HomePage/HomePage.jsx'));
 
 export const App = () => {
+  const isLoggedIn = useSelector(selectAuthentificationStatus);
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
 
   useEffect(() => {
-    if (!token) return;
+    if (!token || isLoggedIn) return;
     console.log('token: ', token);
 
     dispatch(refreshUserThunk());
-  }, [token, dispatch]);
+  }, [token, dispatch, isLoggedIn]);
 
   return (
     <div>

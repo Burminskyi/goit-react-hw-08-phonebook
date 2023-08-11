@@ -5,7 +5,7 @@ import { logoutThunk } from 'redux/operations';
 import { selectUserData } from 'redux/selectors';
 
 const IsAuthorized = () => {
-  const { email } = useSelector(selectUserData);
+  const data = useSelector(selectUserData);
   const dispatch = useDispatch();
 
   const handleClick = e => {
@@ -15,12 +15,12 @@ const IsAuthorized = () => {
 
   return (
     <>
-      <p>{email}</p>
+      {data ? <p>{data.email}</p> : <p>Your email</p>}
       <Button
         onClick={handleClick}
         variant="primary"
         type="button"
-        style={{ marginLeft: '20px', }}
+        style={{ marginLeft: '20px' }}
       >
         Log Out
       </Button>

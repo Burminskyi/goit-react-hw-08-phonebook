@@ -46,7 +46,6 @@ const LoginPage = () => {
         onSubmit={handleSubmit}
         style={{
           width: '300px',
-          // margin: 'auto',
           marginTop: '15px',
         }}
       >

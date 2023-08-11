@@ -79,35 +79,6 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       }),
-  // // -----------DELETE CONTACT-------------
-  // .addCase(deleteContactThunk.pending, state => {
-  //   state.contacts.isLoading = true;
-  //   state.error = null;
-  // })
-  // .addCase(deleteContactThunk.fulfilled, (state, action) => {
-  //   state.contacts.isLoading = false;
-  //   state.contacts.items = state.contacts.items.filter(
-  //     contact => contact.id !== action.payload.id
-  //   );
-  // })
-  // .addCase(deleteContactThunk.rejected, (state, action) => {
-  //   state.contacts.isLoading = false;
-  //   state.contacts.error = action.payload;
-  // })
-  // // -----------ADD CONTACT-------------
-  // .addCase(addContactThunk.pending, state => {
-  //   state.contacts.isLoading = true;
-  //   state.error = null;
-  // })
-  // .addCase(addContactThunk.fulfilled, (state, action) => {
-  //   state.contacts.isLoading = false;
-  //   state.contacts.items.push(action.payload);
-  // })
-  // .addCase(addContactThunk.rejected, (state, action) => {
-  //   state.contacts.isLoading = false;
-  //   state.contacts.error = action.payload;
-  // }),
 });
 
-export const { addContacts, setFilter, deleteContact } = authSlice.actions;
 export const authReducer = authSlice.reducer;

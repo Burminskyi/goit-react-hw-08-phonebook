@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectAuthentificationStatus } from 'redux/selectors';
@@ -26,14 +26,6 @@ const NavBar = () => {
             )}
           </Nav>
           {isLogedIn ? <IsAuthorized /> : <IsNotAuthorized />}
-          {/* <Nav>
-            <Nav.Link>
-              <NavLink to="/register">Register</NavLink>
-            </Nav.Link>
-            <Nav.Link>
-              <NavLink to="/login">LogIn</NavLink>
-            </Nav.Link>
-          </Nav> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

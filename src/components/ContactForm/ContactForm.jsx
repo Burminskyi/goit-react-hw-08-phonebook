@@ -1,18 +1,16 @@
-import { nanoid } from 'nanoid';
-import styles from './ContactForm.module.css';
+import { Form, Button } from 'react-bootstrap';
+
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
-import { addContactThunk } from 'redux/operations';
+import { addContactThunk } from 'redux/contactsThunk';
 
 export const ContactForm = () => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
-  const nameInputId = nanoid();
-  const numberInputId = nanoid();
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -38,7 +36,7 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContactThunk({ name, phone: number, id: nanoid() }));
+    dispatch(addContactThunk({ name, number }));
     reset();
   };
 
@@ -48,46 +46,40 @@ export const ContactForm = () => {
   };
 
   return (
-    <form
+    <Form
       onSubmit={handleSubmit}
-      className={styles.phoneForm}
-      name="signup_form"
-      autoComplete="on"
+      style={{
+        width: '300px',
+        marginTop: '15px',
+      }}
     >
-      <div className={styles.phoneFormWrap}>
-        <label htmlFor={nameInputId} className={styles.contactFormLabel}>
-          Name
-        </label>
-        <input
-          type="text"
+      <Form.Group className="mb-3">
+        <Form.Label>Contact name</Form.Label>
+        <Form.Control
           name="name"
           value={name}
-          className={styles.contactFormInput}
-          id={nameInputId}
-          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          type="text"
+          placeholder="Enter contact name"
           required
           onChange={handleChange}
         />
-        <label htmlFor={numberInputId} className={styles.contactFormLabel}>
-          Number
-        </label>
-        <input
-          type="tel"
+        <Form.Text className="text-muted"></Form.Text>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Phone</Form.Label>
+        <Form.Control
           name="number"
           value={number}
-          // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          type="tel"
+          placeholder="Enter contact phone"
           required
-          className={styles.contactFormInput}
-          id={numberInputId}
           onChange={handleChange}
         />
-      </div>
-
-      <button type="submit" className={styles.phoneFormBtn}>
-        Add contact
-      </button>
-    </form>
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Create contact
+      </Button>
+    </Form>
   );
 };
