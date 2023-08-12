@@ -17,11 +17,29 @@ const NavBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <NavLink to="/">Home</NavLink>
+              <NavLink
+                to="/"
+                style={({ isActive }) => {
+                  return {
+                    fontWeight: isActive ? 'bold' : '',
+                  };
+                }}
+              >
+                Home
+              </NavLink>
             </Nav.Link>
             {isLogedIn && (
               <Nav.Link>
-                <NavLink to="/contacts">My contacts</NavLink>
+                <NavLink
+                  to="/contacts"
+                  style={({ isActive }) => {
+                    return {
+                      fontWeight: isActive ? 'bold' : '',
+                    };
+                  }}
+                >
+                  My contacts
+                </NavLink>
               </Nav.Link>
             )}
           </Nav>

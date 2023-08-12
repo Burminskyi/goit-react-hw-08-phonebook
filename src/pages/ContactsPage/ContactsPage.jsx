@@ -5,7 +5,11 @@ import { Container } from 'react-bootstrap';
 
 const ContactsPage = () => {
   return (
-    <Container>
+    <Container style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    }}>
       <h1>My contacts</h1>
       <ContactForm style={{ margin: 'auto' }} />
       <Filter />

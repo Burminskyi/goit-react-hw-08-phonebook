@@ -5,10 +5,29 @@ const IsNotAuthorized = () => {
   return (
     <Nav>
       <Nav.Link>
-        <NavLink to="/register">Register</NavLink>
+        <NavLink
+          to="/register"
+          style={({ isActive }) => {
+            return {
+              fontWeight: isActive ? 'bold' : '',
+            };
+          }}
+        >
+          Register
+        </NavLink>
       </Nav.Link>
       <Nav.Link>
-        <NavLink to="/login">LogIn</NavLink>
+        <NavLink
+          to="/login"
+          style={({ isActive }) => {
+            return {
+              fontWeight: isActive && 'bold',
+              // color: isActive && 'DeepSkyBlue',
+            };
+          }}
+        >
+          LogIn
+        </NavLink>
       </Nav.Link>
     </Nav>
   );

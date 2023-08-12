@@ -47,13 +47,14 @@ export const ContactForm = () => {
 
   return (
     <Form
+    className="mb-4"
       onSubmit={handleSubmit}
       style={{
         width: '300px',
         marginTop: '15px',
       }}
     >
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-2">
         <Form.Label>Contact name</Form.Label>
         <Form.Control
           name="name"
@@ -66,7 +67,7 @@ export const ContactForm = () => {
         <Form.Text className="text-muted"></Form.Text>
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-4">
         <Form.Label>Phone</Form.Label>
         <Form.Control
           name="number"
@@ -77,7 +78,15 @@ export const ContactForm = () => {
           onChange={handleChange}
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button
+        variant="primary"
+        type="submit"
+        style={{
+          display: 'block',
+          margin: 'auto',
+          width: '300px',
+        }}
+      >
         Create contact
       </Button>
     </Form>

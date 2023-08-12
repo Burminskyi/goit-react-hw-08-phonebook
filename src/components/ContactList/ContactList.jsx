@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Button, ListGroup } from 'react-bootstrap';
 import styles from './ContactList.module.css';
 import {
   selectAuthentificationStatus,
@@ -34,15 +35,22 @@ export const ContactList = () => {
   const showContacts = Array.isArray(contacts) && contacts.length > 0;
 
   return (
-    <div>
+    <div
+      style={{
+        width: 'inherit',
+      }}
+    >
       {error && <p>{error}</p>}
       {isLoading && <Loader />}
       {showContacts && (
-        <ul className={styles.contactList}>
+        <ListGroup className={styles.contactList}>
           {filteredContacts().map(contact => {
             const { id, name, number } = contact;
             return (
-              <li className={styles.contactListItem} key={id}>
+              <ListGroup.Item
+                className={styles.contactListItem}
+                key={id}
+              >
                 <div>
                   <p>
                     <b>Name:</b> {name}
@@ -51,18 +59,18 @@ export const ContactList = () => {
                     <b>Number:</b> {number}
                   </p>
                 </div>
-                <button
+                <Button
                   aria-label="Delete"
+                  variant="primary"
                   type="button"
-                  className={styles.contactListBtn}
                   onClick={() => dispatch(deleteContactThunk(id))}
                 >
                   Delete
-                </button>
-              </li>
+                </Button>
+              </ListGroup.Item>
             );
           })}
-        </ul>
+        </ListGroup>
       )}
     </div>
   );
