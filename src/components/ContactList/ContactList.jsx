@@ -10,7 +10,7 @@ import { selectAuthentificationStatus } from 'redux/auth/selector';
 import { selectContacts, selectContactsError, selectContactsLoading, selectFilter } from 'redux/contacts/selectors';
 
 export const ContactList = () => {
-  const isLoggedIn = useSelector(selectAuthentificationStatus);
+  const isAuthentificated = useSelector(selectAuthentificationStatus);
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectContactsLoading);
   const error = useSelector(selectContactsError);
@@ -19,9 +19,9 @@ export const ContactList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!isLoggedIn) return;
+    if (!isAuthentificated) return;
     dispatch(fetchContactsThunk());
-  }, [dispatch, isLoggedIn]);
+  }, [dispatch, isAuthentificated]);
 
   const filteredContacts = () => {
     const normalizedFilter = filter.toLowerCase();

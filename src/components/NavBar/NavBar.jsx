@@ -7,7 +7,7 @@ import IsNotAuthorized from 'components/IsNotAuthorized/IsNotAuthorized';
 import { selectAuthentificationStatus } from 'redux/auth/selector';
 
 const NavBar = () => {
-  const isLogedIn = useSelector(selectAuthentificationStatus);
+  const isAuthentificated = useSelector(selectAuthentificationStatus);
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
@@ -29,7 +29,7 @@ const NavBar = () => {
                 Home
               </NavLink>
             </Nav.Link>
-            {isLogedIn && (
+            {isAuthentificated && (
               <Nav.Link>
                 <NavLink
                   to="/contacts"
@@ -44,7 +44,7 @@ const NavBar = () => {
               </Nav.Link>
             )}
           </Nav>
-          {isLogedIn ? <IsAuthorized /> : <IsNotAuthorized />}
+          {isAuthentificated ? <IsAuthorized /> : <IsNotAuthorized />}
         </Navbar.Collapse>
       </Container>
     </Navbar>

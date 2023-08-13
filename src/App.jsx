@@ -2,11 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SharedLayout } from 'components/SharedLayout/SharedLayout.jsx';
-import {
-  selectAuthentificationStatus,
-  selectRefreshingStatus,
-  selectToken,
-} from 'redux/auth/selector';
+import { selectRefreshingStatus } from 'redux/auth/selector';
 import { refreshUserThunk } from 'redux/auth/operations';
 import { RestrictedRoute } from 'RestrictedRoute';
 import { PrivateRoute } from 'PrivateRoute';
