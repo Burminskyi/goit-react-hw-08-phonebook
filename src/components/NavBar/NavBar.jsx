@@ -1,9 +1,10 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectAuthentificationStatus } from 'redux/selectors';
+
 import IsAuthorized from 'components/IsAuthorized/IsAuthorized';
 import IsNotAuthorized from 'components/IsNotAuthorized/IsNotAuthorized';
+import { selectAuthentificationStatus } from 'redux/auth/selector';
 
 const NavBar = () => {
   const isLogedIn = useSelector(selectAuthentificationStatus);

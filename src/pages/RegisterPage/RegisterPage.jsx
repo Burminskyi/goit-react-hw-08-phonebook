@@ -1,6 +1,6 @@
 import { Form, Button, Container } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { registerThunk } from 'redux/operations';
+import { registerThunk } from 'redux/auth/operations';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();

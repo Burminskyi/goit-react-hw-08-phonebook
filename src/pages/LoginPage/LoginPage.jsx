@@ -1,6 +1,6 @@
 import { Form, Button, Container } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { loginThunk } from 'redux/operations';
+import { loginThunk } from 'redux/auth/operations';
 
 
 const LoginPage = () => {

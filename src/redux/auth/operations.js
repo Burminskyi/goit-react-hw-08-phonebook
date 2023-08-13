@@ -44,8 +44,9 @@ export const loginThunk = createAsyncThunk(
 export const refreshUserThunk = createAsyncThunk(
   'auth/refreshUser',
   async (_, thunkApi) => {
-    const state = thunkApi.getState();
-    const token = state.auth.token;
+    const token = thunkApi.getState().auth.token;
+
+    if (!token) return thunkApi.rejectWithValue(null);
 
     try {
       setToken(token);
@@ -53,7 +54,7 @@ export const refreshUserThunk = createAsyncThunk(
 
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(null);
     }
   }
 );

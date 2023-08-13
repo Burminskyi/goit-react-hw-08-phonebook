@@ -2,8 +2,8 @@ import { Form, Button } from 'react-bootstrap';
 
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContactThunk } from 'redux/contactsThunk';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContactThunk } from 'redux/contacts/operations';
 
 export const ContactForm = () => {
   const contacts = useSelector(selectContacts);

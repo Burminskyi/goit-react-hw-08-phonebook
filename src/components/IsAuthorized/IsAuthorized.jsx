@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'react-bootstrap';
 
-import { logoutThunk } from 'redux/operations';
-import { selectUserData } from 'redux/selectors';
+import { logoutThunk } from 'redux/auth/operations';
+import { selectUserData } from 'redux/auth/selector';
 
 const IsAuthorized = () => {
   const data = useSelector(selectUserData);

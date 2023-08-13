@@ -1,16 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, ListGroup } from 'react-bootstrap';
 import styles from './ContactList.module.css';
-import {
-  selectAuthentificationStatus,
-  selectContacts,
-  selectContactsError,
-  selectContactsLoading,
-  selectFilter,
-} from 'redux/selectors';
+
+
 import { useEffect } from 'react';
 import { Loader } from 'components/Loader/Loader';
-import { deleteContactThunk, fetchContactsThunk } from 'redux/contactsThunk';
+import { deleteContactThunk, fetchContactsThunk } from 'redux/contacts/operations';
+import { selectAuthentificationStatus } from 'redux/auth/selector';
+import { selectContacts, selectContactsError, selectContactsLoading, selectFilter } from 'redux/contacts/selectors';
 
 export const ContactList = () => {
   const isLoggedIn = useSelector(selectAuthentificationStatus);
