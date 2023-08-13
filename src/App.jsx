@@ -17,6 +17,7 @@ export const App = () => {
   const isRefreshing = useSelector(selectRefreshingStatus);
   const dispatch = useDispatch();
 
+  // -------------------
   useEffect(() => {
     dispatch(refreshUserThunk());
   }, [dispatch]);
