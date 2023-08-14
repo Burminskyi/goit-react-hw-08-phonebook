@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/contacts/contactsSlice';
 import { selectFilter } from 'redux/contacts/selectors';
-import { StyledFilterLabel, StyledFilterWrap } from './Filter.styled';
+import { StyledFilterInputForm, StyledFilterLabel, StyledFilterWrap } from './Filter.styled';
 
 const filterId = nanoid();
 
@@ -16,7 +16,7 @@ export const Filter = () => {
       <StyledFilterLabel htmlFor={filterId}>
         Find contacts by name
       </StyledFilterLabel>
-      <InputGroup className="mb-3">
+      <StyledFilterInputForm className="mb-3">
         <InputGroup.Text>
           <svg width="20" height="20" viewBox="0 0 20 20">
             <path
@@ -40,7 +40,7 @@ export const Filter = () => {
             dispatch(setFilter(target.value));
           }}
         />
-      </InputGroup>
+      </StyledFilterInputForm>
     </StyledFilterWrap>
   );
 };
