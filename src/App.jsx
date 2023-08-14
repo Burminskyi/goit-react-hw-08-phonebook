@@ -7,6 +7,7 @@ import { refreshUserThunk } from 'redux/auth/operations';
 import { RestrictedRoute } from 'RestrictedRoute';
 import { PrivateRoute } from 'PrivateRoute';
 import { Loader } from 'components/Loader/Loader';
+import ErrorPage from 'pages/ErrorPage/ErrorPage';
 
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage.jsx'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage.jsx'));
@@ -49,7 +50,7 @@ export const App = () => {
               <PrivateRoute component={ContactsPage} redirectTo="/login" />
             }
           />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<ErrorPage to="/404" />} />
         </Route>
       </Routes>
     </>
