@@ -12,7 +12,7 @@ const ErrorPage = () => {
       <StyledErrorPageHeader>Error 404</StyledErrorPageHeader>
       <StyledErrorPageText>
         <StyledErrorPageParagraph>
-          Requested URL does not exits
+          Oops... Requested URL does not exits
         </StyledErrorPageParagraph>
         <StyledErrorPageParagraph>
           Check the correction of the URL and try again

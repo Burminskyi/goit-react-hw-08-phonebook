@@ -50,7 +50,7 @@ export const App = () => {
               <PrivateRoute component={ContactsPage} redirectTo="/login" />
             }
           />
-          <Route path="*" element={<ErrorPage to="/404" />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </>
