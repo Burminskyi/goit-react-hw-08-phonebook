@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from 'react-bootstrap';
 
 import { logoutThunk } from 'redux/auth/operations';
 import { selectUserData } from 'redux/auth/selector';
+import { StyledAuthorizedEmail, StyledLogoutBtn } from './IsAuthorized.styled';
 
 const IsAuthorized = () => {
   const data = useSelector(selectUserData);
@@ -15,15 +15,14 @@ const IsAuthorized = () => {
 
   return (
     <>
-      {data ? <p>{data.email}</p> : <p>Your email</p>}
-      <Button
+      {data ? <StyledAuthorizedEmail>{data.email}</StyledAuthorizedEmail> : <StyledAuthorizedEmail>Your email</StyledAuthorizedEmail>}
+      <StyledLogoutBtn
         onClick={handleClick}
         variant="primary"
         type="button"
-        style={{ marginLeft: '20px' }}
       >
         Log Out
-      </Button>
+      </StyledLogoutBtn>
     </>
   );
 };
