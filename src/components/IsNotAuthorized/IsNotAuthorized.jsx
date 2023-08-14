@@ -22,7 +22,6 @@ const IsNotAuthorized = () => {
           style={({ isActive }) => {
             return {
               fontWeight: isActive && 'bold',
-              // color: isActive && 'DeepSkyBlue',
             };
           }}
         >

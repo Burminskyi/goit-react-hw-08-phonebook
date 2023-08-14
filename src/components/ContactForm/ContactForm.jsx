@@ -1,9 +1,14 @@
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContactThunk } from 'redux/contacts/operations';
+import {
+  StyledContactsForm,
+  StyledContactsFormBtn,
+  StyledFormLabel,
+} from './ContactForm.styled';
 
 export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -46,16 +51,9 @@ export const ContactForm = () => {
   };
 
   return (
-    <Form
-    className="mb-4"
-      onSubmit={handleSubmit}
-      style={{
-        width: '300px',
-        marginTop: '15px',
-      }}
-    >
+    <StyledContactsForm className="mb-4" onSubmit={handleSubmit}>
       <Form.Group className="mb-2">
-        <Form.Label>Contact name</Form.Label>
+        <StyledFormLabel>Contact name</StyledFormLabel>
         <Form.Control
           name="name"
           value={name}
@@ -68,7 +66,7 @@ export const ContactForm = () => {
       </Form.Group>
 
       <Form.Group className="mb-4">
-        <Form.Label>Phone</Form.Label>
+        <StyledFormLabel>Phone</StyledFormLabel>
         <Form.Control
           name="number"
           value={number}
@@ -78,17 +76,9 @@ export const ContactForm = () => {
           onChange={handleChange}
         />
       </Form.Group>
-      <Button
-        variant="primary"
-        type="submit"
-        style={{
-          display: 'block',
-          margin: 'auto',
-          width: '300px',
-        }}
-      >
+      <StyledContactsFormBtn variant="primary" type="submit">
         Create contact
-      </Button>
-    </Form>
+      </StyledContactsFormBtn>
+    </StyledContactsForm>
   );
 };

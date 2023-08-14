@@ -1,9 +1,9 @@
-import styles from './Filter.module.css';
 import { InputGroup, Form } from 'react-bootstrap';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/contacts/contactsSlice';
 import { selectFilter } from 'redux/contacts/selectors';
+import { StyledFilterLabel, StyledFilterWrap } from './Filter.styled';
 
 const filterId = nanoid();
 
@@ -12,10 +12,10 @@ export const Filter = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.filterWrap}>
-      <label htmlFor={filterId} className={styles.filterLabel}>
+    <StyledFilterWrap>
+      <StyledFilterLabel htmlFor={filterId}>
         Find contacts by name
-      </label>
+      </StyledFilterLabel>
       <InputGroup className="mb-3">
         <InputGroup.Text>
           <svg width="20" height="20" viewBox="0 0 20 20">
@@ -41,16 +41,6 @@ export const Filter = () => {
           }}
         />
       </InputGroup>
-      {/* <input
-        className={styles.filterInput}
-        type="text"
-        name="filter"
-        value={filter}
-        id={filterId}
-        onChange={({ target }) => {
-          dispatch(setFilter(target.value));
-        }}
-      /> */}
-    </div>
+    </StyledFilterWrap>
   );
 };

@@ -1,20 +1,18 @@
-import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
-import { Container } from 'react-bootstrap';
+import {
+  StyledContactForm,
+  StyledContactsPageContainer,
+} from './ContactsPage.styled';
 
 const ContactsPage = () => {
   return (
-    <Container style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }}>
+    <StyledContactsPageContainer>
       <h1>My contacts</h1>
-      <ContactForm style={{ margin: 'auto' }} />
+      <StyledContactForm />
       <Filter />
       <ContactList />
-    </Container>
+    </StyledContactsPageContainer>
   );
 };
 

@@ -1,7 +1,13 @@
-import { Form, Button, Container } from 'react-bootstrap';
+import { StyledFormLabel } from 'components/ContactForm/ContactForm.styled';
+import { Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { loginThunk } from 'redux/auth/operations';
-
+import {
+  StyledAuthBtn,
+  StyledAuthContainer,
+  StyledAuthForm,
+  StyledAuthHeader,
+} from './LoginPage.styled';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -21,36 +27,16 @@ const LoginPage = () => {
   };
 
   return (
-    <Container
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-      }}
-    >
-      <strong
-        style={{
-          fontSize: '36px',
-          marginTop: '30px',
-          marginBottom: '30px',
-          textAlign: 'center',
-        }}
-      >
+    <StyledAuthContainer>
+      <StyledAuthHeader>
         LogIn to view your contacts
         <br />
         or register if you don't have an account
-      </strong>
+      </StyledAuthHeader>
       <b>Enter your email and password</b>
-      <Form
-        onSubmit={handleSubmit}
-        style={{
-          width: '300px',
-          marginTop: '15px',
-        }}
-      >
+      <StyledAuthForm onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
+          <StyledFormLabel>Email</StyledFormLabel>
           <Form.Control
             name="email"
             type="email"
@@ -61,24 +47,19 @@ const LoginPage = () => {
         </Form.Group>
 
         <Form.Group className="mb-5" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <StyledFormLabel>Password</StyledFormLabel>
           <Form.Control
             name="password"
             type="password"
-            placeholder="Create password"
+            placeholder="Enter your password"
             required
-            minLength={7}
           />
         </Form.Group>
-        <Button
-          variant="primary"
-          type="submit"
-          style={{ width: '150px', margin: 'auto', display: 'block' }}
-        >
+        <StyledAuthBtn variant="primary" type="submit">
           Sign In
-        </Button>
-      </Form>
-    </Container>
+        </StyledAuthBtn>
+      </StyledAuthForm>
+    </StyledAuthContainer>
   );
 };
 

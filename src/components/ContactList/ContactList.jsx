@@ -1,13 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, ListGroup } from 'react-bootstrap';
-import styles from './ContactList.module.css';
-
 
 import { useEffect } from 'react';
 import { Loader } from 'components/Loader/Loader';
-import { deleteContactThunk, fetchContactsThunk } from 'redux/contacts/operations';
+import {
+  deleteContactThunk,
+  fetchContactsThunk,
+} from 'redux/contacts/operations';
 import { selectAuthentificationStatus } from 'redux/auth/selector';
-import { selectContacts, selectContactsError, selectContactsLoading, selectFilter } from 'redux/contacts/selectors';
+import {
+  selectContacts,
+  selectContactsError,
+  selectContactsLoading,
+  selectFilter,
+} from 'redux/contacts/selectors';
+import { StyledContactsListGroupItem } from './ContactList.styled';
 
 export const ContactList = () => {
   const isAuthentificated = useSelector(selectAuthentificationStatus);
@@ -40,14 +47,11 @@ export const ContactList = () => {
       {error && <p>{error}</p>}
       {isLoading && <Loader />}
       {showContacts && (
-        <ListGroup className={styles.contactList}>
+        <ListGroup>
           {filteredContacts().map(contact => {
             const { id, name, number } = contact;
             return (
-              <ListGroup.Item
-                className={styles.contactListItem}
-                key={id}
-              >
+              <StyledContactsListGroupItem key={id}>
                 <div>
                   <p>
                     <b>Name:</b> {name}
@@ -64,7 +68,7 @@ export const ContactList = () => {
                 >
                   Delete
                 </Button>
-              </ListGroup.Item>
+              </StyledContactsListGroupItem>
             );
           })}
         </ListGroup>

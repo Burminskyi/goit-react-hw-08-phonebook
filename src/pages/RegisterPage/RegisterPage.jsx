@@ -1,4 +1,11 @@
-import { Form, Button, Container } from 'react-bootstrap';
+import { StyledFormLabel } from 'components/ContactForm/ContactForm.styled';
+import {
+  StyledAuthBtn,
+  StyledAuthContainer,
+  StyledAuthForm,
+  StyledAuthHeader,
+} from 'pages/LoginPage/LoginPage.styled';
+import { Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { registerThunk } from 'redux/auth/operations';
 
@@ -22,37 +29,16 @@ const RegisterPage = () => {
   };
 
   return (
-    <Container
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-      }}
-    >
-      <strong
-        style={{
-          fontSize: '36px',
-          marginTop: '30px',
-          marginBottom: '30px',
-          textAlign: 'center',
-        }}
-      >
+    <StyledAuthContainer>
+      <StyledAuthHeader>
         Register to view contacts
         <br />
         or LogIn if you already have an account
-      </strong>
+      </StyledAuthHeader>
       <b>Enter your name, email and password</b>
-      <Form
-        onSubmit={handleSubmit}
-        style={{
-          width: '300px',
-          // margin: 'auto',
-          marginTop: '15px',
-        }}
-      >
+      <StyledAuthForm onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
+          <StyledFormLabel>Name</StyledFormLabel>
           <Form.Control
             name="name"
             type="text"
@@ -63,7 +49,7 @@ const RegisterPage = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
+          <StyledFormLabel>Email</StyledFormLabel>
           <Form.Control
             name="email"
             type="email"
@@ -76,7 +62,7 @@ const RegisterPage = () => {
         </Form.Group>
 
         <Form.Group className="mb-5" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <StyledFormLabel>Password</StyledFormLabel>
           <Form.Control
             name="password"
             type="password"
@@ -85,15 +71,11 @@ const RegisterPage = () => {
             minLength={7}
           />
         </Form.Group>
-        <Button
-          variant="primary"
-          type="submit"
-          style={{ width: '150px', margin: 'auto', display: 'block' }}
-        >
+        <StyledAuthBtn variant="primary" type="submit">
           Sign Up
-        </Button>
-      </Form>
-    </Container>
+        </StyledAuthBtn>
+      </StyledAuthForm>
+    </StyledAuthContainer>
   );
 };
 

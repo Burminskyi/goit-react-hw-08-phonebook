@@ -5,15 +5,14 @@ import { useSelector } from 'react-redux';
 import IsAuthorized from 'components/IsAuthorized/IsAuthorized';
 import IsNotAuthorized from 'components/IsNotAuthorized/IsNotAuthorized';
 import { selectAuthentificationStatus } from 'redux/auth/selector';
+import { StyledNavbarBrand } from './NavBar.styled';
 
 const NavBar = () => {
   const isAuthentificated = useSelector(selectAuthentificationStatus);
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
-        <Navbar.Brand style={{ fontSize: '32px', marginRight: '60px' }}>
-          PhoneBook
-        </Navbar.Brand>
+        <StyledNavbarBrand>PhoneBook</StyledNavbarBrand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
