@@ -22,7 +22,7 @@ const NavBar = () => {
               height="48"
               className="d-inline-block align-top"
             />{' '}
-            PhoneBook
+            PhoneBookApp
           </StyledNavbarBrand>
         </StyledLogo>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
