@@ -1,6 +1,7 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import logo from './header-logo.svg';
 
 import IsAuthorized from 'components/IsAuthorized/IsAuthorized';
 import IsNotAuthorized from 'components/IsNotAuthorized/IsNotAuthorized';
@@ -12,7 +13,18 @@ const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
-        <StyledNavbarBrand>PhoneBook</StyledNavbarBrand>
+      <StyledNavbarBrand style={{ fontSize: '32px', marginRight: '60px' }}>
+          <img
+            alt=""
+            src={logo}
+            width="48"
+            height="48"
+            className="d-inline-block align-top"
+            style={{ fontSize: '32px'}}
+          />{' '}
+          PhoneBook
+        </StyledNavbarBrand>
+        {/* <StyledNavbarBrand>PhoneBook</StyledNavbarBrand> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
