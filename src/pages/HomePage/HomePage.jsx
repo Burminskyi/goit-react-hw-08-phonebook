@@ -26,7 +26,7 @@ const HomePage = () => {
           Discover the ultimate tool for managing your contacts effectively.
           With our user-friendly application, you can easily organize and access
           all your contacts in one place. Whether it's for personal or
-          professional use, ContactBookApp simplifies contact management.
+          professional use, PhoneBookApp simplifies contact management.
         </p>
       </StyledHomeText>
       <StyledHomeHeaders>Key Features:</StyledHomeHeaders>
@@ -99,7 +99,7 @@ const HomePage = () => {
         </li>
       </StyledHomeOrderedList>
       <p>
-        Are you ready to take control of your contacts? Join ContactBookApp
+        Are you ready to take control of your contacts? Join PhoneBookApp
         today and experience the convenience of managing your contacts
         hassle-free. Start building your personalized contact book now!
       </p>
@@ -120,7 +120,7 @@ const HomePage = () => {
         Got questions? Check out our FAQ section or reach out to our support
         team for assistance.
       </StyledHomeParagraph>
-      <p>Stay connected, stay organized with ContactBookApp!</p>
+      <p>Stay connected, stay organized with PhoneBookApp!</p>
     </Container>
   );
 };
